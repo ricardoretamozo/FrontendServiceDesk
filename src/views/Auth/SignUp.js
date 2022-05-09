@@ -14,12 +14,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Assets
-import BgSignUp from "assets/img/BgSignUp.png";
+import BgSignUp from "assets/img/fondo.jpg";
 import React from "react";
 import { FaApple, FaFacebook, FaGoogle } from "react-icons/fa";
 
 function SignUp() {
-  const titleColor = useColorModeValue("teal.300", "teal.200");
+  const titleColor = useColorModeValue("#9a1413", "teal.200");
   const textColor = useColorModeValue("gray.700", "white");
   const bgColor = useColorModeValue("white", "gray.700");
   const bgIcons = useColorModeValue("teal.200", "rgba(255, 255, 255, 0.5)");
@@ -51,8 +51,8 @@ function SignUp() {
         align='center'
         mt='6.5rem'
         mb='30px'>
-        <Text fontSize='4xl' color='white' fontWeight='bold'>
-          Welcome!
+        <Text fontSize='4xl' color='#9a1413' fontWeight='bold'>
+          Sistema de incidencias Poder Judicial-Arequipa
         </Text>
         <Text
           fontSize='md'
@@ -61,8 +61,7 @@ function SignUp() {
           mt='10px'
           mb='26px'
           w={{ base: "90%", sm: "60%", lg: "40%", xl: "30%" }}>
-          Use these awesome forms to login or create new account in your project
-          for free.
+          Registro de usuario, para el sistema de incidencias del Poder Judicial Arequipa.
         </Text>
       </Flex>
       <Flex alignItems='center' justifyContent='center' mb='60px' mt='20px'>
@@ -81,97 +80,30 @@ function SignUp() {
             fontWeight='bold'
             textAlign='center'
             mb='22px'>
-            Register With
-          </Text>
-          <HStack spacing='15px' justify='center' mb='22px'>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link href='#'>
-                <Icon
-                  as={FaFacebook}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link href='#'>
-                <Icon
-                  as={FaApple}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-            <Flex
-              justify='center'
-              align='center'
-              w='75px'
-              h='75px'
-              borderRadius='15px'
-              border='1px solid lightgray'
-              cursor='pointer'
-              transition='all .25s ease'
-              _hover={{ filter: "brightness(120%)", bg: bgIcons }}>
-              <Link href='#'>
-                <Icon
-                  as={FaGoogle}
-                  w='30px'
-                  h='30px'
-                  _hover={{ filter: "brightness(120%)" }}
-                />
-              </Link>
-            </Flex>
-          </HStack>
-          <Text
-            fontSize='lg'
-            color='gray.400'
-            fontWeight='bold'
-            textAlign='center'
-            mb='22px'>
-            or
+            Registro de usuario
           </Text>
           <FormControl>
             <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-              Name
+              Documento de identificación
             </FormLabel>
             <Input
               fontSize='sm'
               ms='4px'
               borderRadius='15px'
               type='text'
-              placeholder='Your full name'
+              placeholder='DNI'
               mb='24px'
               size='lg'
             />
             <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-              Email
+              Fecha Emisión
             </FormLabel>
             <Input
               fontSize='sm'
               ms='4px'
               borderRadius='15px'
-              type='email'
-              placeholder='Your email address'
+              type='date'
+              placeholder='Fecha de emsión'
               mb='24px'
               size='lg'
             />
@@ -186,16 +118,11 @@ function SignUp() {
               placeholder='Your password'
               mb='24px'
               size='lg'
+            
             />
-            <FormControl display='flex' alignItems='center' mb='24px'>
-              <Switch id='remember-login' colorScheme='teal' me='10px' />
-              <FormLabel htmlFor='remember-login' mb='0' fontWeight='normal'>
-                Remember me
-              </FormLabel>
-            </FormControl>
             <Button
               type='submit'
-              bg='teal.300'
+              bg='#9a1413'
               fontSize='10px'
               color='white'
               fontWeight='bold'
@@ -203,7 +130,7 @@ function SignUp() {
               h='45'
               mb='24px'
               _hover={{
-                bg: "teal.200",
+                bg: "black",
               }}
               _active={{
                 bg: "teal.400",

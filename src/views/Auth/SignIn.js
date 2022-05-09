@@ -14,12 +14,12 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 // Assets
-import signInImage from "assets/img/signInImage.png";
+import signInImage from "assets/img/poderjudicial.jpg";
 
 function SignIn() {
   // Chakra color mode
-  const titleColor = useColorModeValue("teal.300", "teal.200");
-  const textColor = useColorModeValue("gray.400", "white");
+  const titleColor = useColorModeValue("#9a1413", "white");
+  const textColor = useColorModeValue("black.400", "white");
   return (
     <Flex position='relative' mb='40px'>
       <Flex
@@ -41,8 +41,8 @@ function SignIn() {
             background='transparent'
             p='48px'
             mt={{ md: "150px", lg: "80px" }}>
-            <Heading color={titleColor} fontSize='32px' mb='10px'>
-              Welcome Back
+            <Heading color={titleColor} fontSize='65px' mb='15px'>
+              Bienvenido
             </Heading>
             <Text
               mb='36px'
@@ -50,57 +50,49 @@ function SignIn() {
               color={textColor}
               fontWeight='bold'
               fontSize='14px'>
-              Enter your email and password to sign in
+              Ingresa tu correo y tu contraseña.
             </Text>
             <FormControl>
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-                Email
+                Usuario
               </FormLabel>
               <Input
                 borderRadius='15px'
                 mb='24px'
                 fontSize='sm'
                 type='text'
-                placeholder='Your email adress'
+                placeholder='DNI'
                 size='lg'
+                focusBorderColor='#9a1413'
               />
               <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-                Password
+                Contraseña
               </FormLabel>
               <Input
                 borderRadius='15px'
                 mb='36px'
                 fontSize='sm'
                 type='password'
-                placeholder='Your password'
+                placeholder='Contraseña'
                 size='lg'
+                focusBorderColor='#9a1413'
               />
-              <FormControl display='flex' alignItems='center'>
-                <Switch id='remember-login' colorScheme='teal' me='10px' />
-                <FormLabel
-                  htmlFor='remember-login'
-                  mb='0'
-                  ms='1'
-                  fontWeight='normal'>
-                  Remember me
-                </FormLabel>
-              </FormControl>
               <Button
-                fontSize='10px'
+                fontSize='15px'
                 type='submit'
-                bg='teal.300'
+                bg='#9a1413'
                 w='100%'
                 h='45'
                 mb='20px'
                 color='white'
                 mt='20px'
                 _hover={{
-                  bg: "teal.200",
+                  bg: "black",
                 }}
                 _active={{
                   bg: "teal.400",
                 }}>
-                SIGN IN
+                Iniciar Sesión
               </Button>
             </FormControl>
             <Flex
@@ -110,9 +102,9 @@ function SignIn() {
               maxW='100%'
               mt='0px'>
               <Text color={textColor} fontWeight='medium'>
-                Don't have an account?
+                Usted no esta registrado?
                 <Link color={titleColor} as='span' ms='5px' fontWeight='bold'>
-                  Sign Up
+                  Registrate
                 </Link>
               </Text>
             </Flex>
