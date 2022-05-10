@@ -1,5 +1,10 @@
 // Chakra imports
+import { AddIcon } from "@chakra-ui/icons";
 import {
+    Box,
+    Button,
+    Flex,
+    Spacer,
     Table,
     Tbody,
     Text,
@@ -15,14 +20,21 @@ import {
   import TablesSedeRow from "components/Tables/TablesSedeRow";
   import React from "react";
   
-  const Authors = ({ title, captions, data }) => {
+  const Sedes = ({ title, captions, data }) => {
     const textColor = useColorModeValue("gray.700", "white");
     return (
       <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
         <CardHeader p='6px 0px 22px 0px'>
-          <Text fontSize='xl' color={textColor} fontWeight='bold'>
-            {title}
-          </Text>
+            <Flex>
+                <Box p="4">
+                    <Text fontSize='xl' color={textColor} fontWeight='bold'>
+                    {title}
+                    </Text>
+                </Box>
+                <Box p="4">
+                    <Button colorScheme="blue" variant={"solid"}>Agregar</Button>
+                </Box>
+            </Flex>
         </CardHeader>
         <CardBody>
           <Table variant='simple' color={textColor}>
@@ -55,5 +67,5 @@ import {
     );
   };
   
-  export default Authors;
+  export default Sedes;
   
