@@ -18,19 +18,10 @@ import {
   
     return (
       <Tr>
-        <Td minWidth={{ sm: "250px" }} pl="0px">
-          <Flex align="center" py=".8rem" minWidth="100%" flexWrap="nowrap">
-            <Flex direction="column">
-              <Text
-                fontSize="md"
-                color={textColor}
-                fontWeight="bold"
-                minWidth="100%"
-              >
-                {id}
-              </Text>
-            </Flex>
-          </Flex>
+        <Td minWidth={{ sm: "100px" }} pl="0px">
+          <Text fontSize="md" color={textColor} fontWeight="bold" pb=".5rem">
+            {id}
+          </Text>
         </Td>
   
         <Td>

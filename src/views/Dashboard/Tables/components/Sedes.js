@@ -42,6 +42,7 @@ import {
                 return (
                   <TablesSedeRow
                     key={row.id}
+                    id={row.id}
                     sede={row.sede}
                     direccion={row.direccion}
                   />
