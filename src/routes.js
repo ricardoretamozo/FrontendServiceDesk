@@ -6,6 +6,7 @@ import RTLPage from "views/Dashboard/RTL";
 import Profile from "views/Dashboard/Profile";
 import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
+import Sedes from "views/Dashboard/Tables/adminTables/sedeTable.js";
 
 import {
   HomeIcon,
@@ -52,16 +53,16 @@ var dashRoutes = [
   },
   {
     name: "ADMIN PAGES",
-    category: "admin",
+    category: "account",
     rtlName: "صفحات",
     state: "pageCollapse",
     views: [
       {
-        path: "/tables",
+        path: "/sedes",
         name: "Sedes",
         rtlName: "لوحة القيادة",
         icon: <StatsIcon color="inherit" />,
-        component: Tables,
+        component: Sedes,
         layout: "/admin",
       },
     ],
