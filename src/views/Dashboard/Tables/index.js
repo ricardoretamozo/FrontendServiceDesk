@@ -4,7 +4,7 @@ import React from "react";
 import Authors from "./components/Authors";
 import Projects from "./components/Projects";
 import Sedes from "./components/Sedes";
-import { tablesTableData, dashboardTableData } from "variables/general";
+import { tablesTableData, dashboardTableData, tablesSedeData } from "variables/general";
 
 function Tables() {
   return (
@@ -20,9 +20,9 @@ function Tables() {
         data={dashboardTableData}
       />
       <Sedes
-      title={"Authors Table"}
-      captions={["Author", "Function", "Status", "Employed", ""]}
-      data={tablesTableData}
+      title={"Sedes Table"}
+      captions={["Id", "Sede", "Direccion", ""]}
+      data={tablesSedeData}
       />
     </Flex>
   );

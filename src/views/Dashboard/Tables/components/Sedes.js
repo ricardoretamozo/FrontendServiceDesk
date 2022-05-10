@@ -12,7 +12,7 @@ import {
   import Card from "components/Card/Card.js";
   import CardBody from "components/Card/CardBody.js";
   import CardHeader from "components/Card/CardHeader.js";
-  import TablesTableRow from "components/Tables/TablesTableRow";
+  import TablesSedeRow from "components/Tables/TablesSedeRow";
   import React from "react";
   
   const Authors = ({ title, captions, data }) => {
@@ -40,15 +40,10 @@ import {
             <Tbody>
               {data.map((row) => {
                 return (
-                  <TablesTableRow
-                    key={`${row.email}-${row.name}`}
-                    name={row.name}
-                    logo={row.logo}
-                    email={row.email}
-                    subdomain={row.subdomain}
-                    domain={row.domain}
-                    status={row.status}
-                    date={row.date}
+                  <TablesSedeRow
+                    key={row.id}
+                    sede={row.sede}
+                    direccion={row.direccion}
                   />
                 );
               })}

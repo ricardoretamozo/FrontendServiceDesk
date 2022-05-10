@@ -251,6 +251,18 @@ export const tablesTableData = [
   },
 ];
 
+export const tablesSedeData = [
+  {
+    id: 1,
+    sede: "Central",
+    direccion: "sur"
+  },
+  {
+    id: 2,
+    sede: "Central#2",
+    direccion: "norte"
+  },
+];
 export const tablesProjectData = [
   {
     logo: AdobexdLogo,
