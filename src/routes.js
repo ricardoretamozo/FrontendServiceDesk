@@ -51,6 +51,22 @@ var dashRoutes = [
     layout: "/rtl",
   },
   {
+    name: "ADMIN PAGES",
+    category: "admin",
+    rtlName: "صفحات",
+    state: "pageCollapse",
+    views: [
+      {
+        path: "/tables",
+        name: "Sedes",
+        rtlName: "لوحة القيادة",
+        icon: <StatsIcon color="inherit" />,
+        component: Tables,
+        layout: "/admin",
+      },
+    ],
+  },
+  {
     name: "ACCOUNT PAGES",
     category: "account",
     rtlName: "صفحات",
