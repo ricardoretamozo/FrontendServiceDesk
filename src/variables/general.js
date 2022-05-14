@@ -263,6 +263,32 @@ export const tablesSedeData = [
     direccion: "norte"
   },
 ];
+export const tablesOrganoData = [
+  {
+    idOrgano: 4,
+    sede: {
+        idSede: 1,
+        sede: "Mollendo",
+        direccion: "Av colon"
+    },
+    organo: "Codigo Penal#2"
+  },
+];
+export const tablesOficinaData = [
+  {
+    idOficina: 1,
+    organo: {
+        idOrgano: 6,
+        sede: {
+            idSede: 1,
+            sede: "Mollendo",
+            direccion: "Av colon"
+        },
+        organo: "Codigo Penal"
+    },
+    oficina: "Desapcho #2"
+  },
+];
 export const tablesProjectData = [
   {
     logo: AdobexdLogo,

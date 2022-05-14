@@ -7,6 +7,8 @@ import Profile from "views/Dashboard/Profile";
 import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
 import Sedes from "views/Dashboard/Tables/adminTables/sedeTable.js";
+import Organos from "views/Dashboard/Tables/adminTables/organoTable.js";
+import Oficinas from "views/Dashboard/Tables/adminTables/oficinaTable.js";
 
 import {
   HomeIcon,
@@ -63,6 +65,22 @@ var dashRoutes = [
         rtlName: "لوحة القيادة",
         icon: <StatsIcon color="inherit" />,
         component: Sedes,
+        layout: "/admin",
+      },
+      {
+        path: "/organos",
+        name: "Organos",
+        rtlName: "لوحة القيادة",
+        icon: <StatsIcon color="inherit" />,
+        component: Organos,
+        layout: "/admin",
+      },
+      {
+        path: "/oficinas",
+        name: "Oficinass",
+        rtlName: "لوحة القيادة",
+        icon: <StatsIcon color="inherit" />,
+        component: Oficinas,
         layout: "/admin",
       },
     ],

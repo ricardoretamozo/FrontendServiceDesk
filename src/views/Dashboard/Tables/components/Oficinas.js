@@ -17,10 +17,10 @@ import {
   import Card from "components/Card/Card.js";
   import CardBody from "components/Card/CardBody.js";
   import CardHeader from "components/Card/CardHeader.js";
-  import TablesSedeRow from "components/Tables/Admin/TablesSedeRow";
+  import TablesOficinaRow from "components/Tables/Admin/TablesOficinaRow";
   import React from "react";
   
-  const Sedes = ({ title, captions, data }) => {
+  const Oficinas = ({ title, captions, data }) => {
     const textColor = useColorModeValue("gray.700", "white");
     return (
       <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
@@ -52,11 +52,11 @@ import {
             <Tbody>
               {data.map((row) => {
                 return (
-                  <TablesSedeRow
-                    key={row.id}
-                    id={row.id}
-                    sede={row.sede}
-                    direccion={row.direccion}
+                  <TablesOficinaRow
+                    key={row.idOficina}
+                    id={row.idOficina}
+                    organo={row.organo.organo}
+                    oficina={row.oficina}
                   />
                 );
               })}
@@ -67,5 +67,6 @@ import {
     );
   };
   
-  export default Sedes;
+  export default Oficinas;
+  
   
