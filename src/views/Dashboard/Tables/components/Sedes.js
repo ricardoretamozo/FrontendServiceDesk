@@ -12,6 +12,17 @@ import {
     Thead,
     Tr,
     useColorModeValue,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
+    FormControl,
+    FormLabel,
+    Input,
   } from "@chakra-ui/react";
   // Custom components
   import Card from "components/Card/Card.js";
@@ -20,6 +31,41 @@ import {
   import TablesSedeRow from "components/Tables/Admin/TablesSedeRow";
   import React from "react";
   
+
+  // Componente Modal, formulario de creacion sede.
+  const AddSede = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return (
+      <Box p="4">
+        <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>Agregar</Button>
+        <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Crear Sede</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+            <FormControl>
+              <FormLabel>Nombre sede</FormLabel>
+              <Input placeholder='Nombre de la sede' />
+            </FormControl>
+
+            <FormControl mt={4}>
+              <FormLabel>Dirección</FormLabel>
+              <Input placeholder='Direccion de la sede' />
+            </FormControl>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3}>
+                Agregar
+              </Button>
+              <Button onClick={onClose}>Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+    )
+  }
+
   const Sedes = ({ title, captions, data }) => {
     const textColor = useColorModeValue("gray.700", "white");
     return (
@@ -31,9 +77,7 @@ import {
                     {title}
                     </Text>
                 </Box>
-                <Box p="4">
-                    <Button colorScheme="blue" variant={"solid"}>Agregar</Button>
-                </Box>
+                <AddSede/>
             </Flex>
         </CardHeader>
         <CardBody>

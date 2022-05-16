@@ -12,6 +12,14 @@ import {
     Thead,
     Tr,
     useColorModeValue,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure,
   } from "@chakra-ui/react";
   // Custom components
   import Card from "components/Card/Card.js";
@@ -19,7 +27,32 @@ import {
   import CardHeader from "components/Card/CardHeader.js";
   import TablesOficinaRow from "components/Tables/Admin/TablesOficinaRow";
   import React from "react";
-  
+
+
+  const AddOficina = () => {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return (
+      <Box p="4">
+        <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>Agregar</Button>
+        <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
+          <ModalOverlay />
+          <ModalContent>
+            <ModalHeader>Crear oficina</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <Text>Hi</Text>
+            </ModalBody>
+            <ModalFooter>
+              <Button colorScheme="blue" mr={3}>
+                Save
+              </Button>
+              <Button onClick={onClose}>Cancel</Button>
+            </ModalFooter>
+          </ModalContent>
+        </Modal>
+      </Box>
+    )
+  }
   const Oficinas = ({ title, captions, data }) => {
     const textColor = useColorModeValue("gray.700", "white");
     return (
@@ -31,9 +64,7 @@ import {
                     {title}
                     </Text>
                 </Box>
-                <Box p="4">
-                    <Button colorScheme="blue" variant={"solid"}>Agregar</Button>
-                </Box>
+                    <AddOficina/>
             </Flex>
         </CardHeader>
         <CardBody>
