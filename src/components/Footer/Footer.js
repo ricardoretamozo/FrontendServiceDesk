@@ -88,7 +88,6 @@ export default function Footer(props) {
           <Link
             color="gray.400"
             href="#blog"
-            href="https://creative-tim.com/blog"
           >
             {document.documentElement.dir === "rtl" ? "مدونة" : "Blog"}
           </Link>
@@ -97,7 +96,6 @@ export default function Footer(props) {
           <Link
             color="gray.400"
             href="#license"
-            href="https://www.creative-tim.com/license"
           >
             {document.documentElement.dir === "rtl" ? "رخصة" : "License"}
           </Link>

@@ -19,12 +19,37 @@ import {
     FormLabel,
     Input,
   } from "@chakra-ui/react";
-  import React from "react";
+  import React, { useState } from "react";
+  import axios from 'axios';
 
-  //Componente modal para editar una sede
+  // Componente modal para editar una sede
   const EditarSede = (props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
-    const { sede, direccion} = props;
+    const { idSede ,sede, direccion} = props;
+    const [ sedeNombre, setNombre] = useState(sede);
+    const [ sedeDireccion, setDireccion] = useState(direccion);
+
+    // Metodo put para editar sedes
+    const putSedes = ()=> {
+      const data = {
+        idSede: idSede,
+        sede: sedeNombre,
+        direccion: sedeDireccion
+      }
+      let config = {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      console.log(data);
+      axios.put('http://localhost:8080/api/sedes', data, config).then(res => {
+        console.log(res);
+        console.log(res.data);
+      }).catch(e =>{
+        console.log(e);
+      });
+    }
+
     return (
       <>
         <Button leftIcon={<EditIcon />}  colorScheme="yellow" variant="solid" onClick={onOpen}>
@@ -38,16 +63,16 @@ import {
             <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Nombre sede</FormLabel>
-              <Input value={sede}/>
+              <Input value={sedeNombre} onChange={(e)=>{setNombre(e.target.value)}}/>
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>Dirección</FormLabel>
-              <Input value={direccion}/>
+              <Input value={sedeDireccion} onChange={(e)=>{setDireccion(e.target.value)}}/>
             </FormControl>
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
+              <Button colorScheme="blue" mr={3} onClick={putSedes}>
                 Guardar
               </Button>
               <Button onClick={onClose}>Cancel</Button>
@@ -59,20 +84,39 @@ import {
   }
 
   //Componente modal para anular una sede
-  const AnularSede = () => {
+  const AnularSede = (props) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { idSede } = props;
+    // Metodo put para eliminar sedes
+    const deleteSedes = ()=> {
+      
+      let config = {
+        headers: {
+          'Content-Type': 'application/json',
+          
+        }
+      }
+      
+      axios.delete('http://localhost:8080/api/sedes/'+idSede, config).then(res => {
+        console.log('http://localhost:8080/api/sedes/'+idSede);
+        //console.log(res);
+        //console.log(res.data);
+      }).catch(e =>{
+        console.log(e);
+      });
+    }
     return (
       <>
         <Button leftIcon={<NotAllowedIcon />} colorScheme="red" variant="solid" onClick={onOpen}>
-          Anular
+          ELIMINAR
         </Button>
         <Modal closeOnOverlayClick={false} isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>¿Esta seguro de anular la sede?</ModalHeader>
+            <ModalHeader>¿Esta seguro de eliminar la sede?</ModalHeader>
             <ModalCloseButton />
             <ModalFooter>
-              <Button colorScheme="red" mr={3}>
+              <Button colorScheme="red" onClick={deleteSedes} mr={3}>
                 Confirmar
               </Button>
               <Button onClick={onClose}>Cancelar</Button>
@@ -111,8 +155,8 @@ import {
         </Td>
         <Td>
             <Stack direction="row" spacing={4}>
-                <EditarSede sede={sede} direccion={direccion}/>
-                <AnularSede />
+                <EditarSede idSede={id} sede={sede} direccion={direccion}/>
+                <AnularSede idSede={id}/>
             </Stack>
         </Td>
       </Tr>

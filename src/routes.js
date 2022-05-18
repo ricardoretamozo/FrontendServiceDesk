@@ -2,7 +2,6 @@
 import Dashboard from "views/Dashboard/Dashboard";
 import Tables from "views/Dashboard/Tables";
 import Billing from "views/Dashboard/Billing";
-import RTLPage from "views/Dashboard/RTL";
 import Profile from "views/Dashboard/Profile";
 import SignIn from "views/Auth/SignIn.js";
 import SignUp from "views/Auth/SignUp.js";
@@ -24,7 +23,6 @@ var dashRoutes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    rtlName: "لوحة القيادة",
     icon: <HomeIcon color="inherit" />,
     component: Dashboard,
     layout: "/admin",
@@ -32,7 +30,6 @@ var dashRoutes = [
   {
     path: "/tables",
     name: "Tables",
-    rtlName: "لوحة القيادة",
     icon: <StatsIcon color="inherit" />,
     component: Tables,
     layout: "/admin",
@@ -40,29 +37,18 @@ var dashRoutes = [
   {
     path: "/billing",
     name: "Billing",
-    rtlName: "لوحة القيادة",
     icon: <CreditIcon color="inherit" />,
     component: Billing,
     layout: "/admin",
   },
   {
-    path: "/rtl-support-page",
-    name: "RTL",
-    rtlName: "آرتيإل",
-    icon: <SupportIcon color="inherit" />,
-    component: RTLPage,
-    layout: "/rtl",
-  },
-  {
     name: "ADMIN PAGES",
     category: "account",
-    rtlName: "صفحات",
     state: "pageCollapse",
     views: [
       {
         path: "/sedes",
         name: "Sedes",
-        rtlName: "لوحة القيادة",
         icon: <StatsIcon color="inherit" />,
         component: Sedes,
         layout: "/admin",
@@ -70,15 +56,13 @@ var dashRoutes = [
       {
         path: "/organos",
         name: "Organos",
-        rtlName: "لوحة القيادة",
         icon: <StatsIcon color="inherit" />,
         component: Organos,
         layout: "/admin",
       },
       {
         path: "/oficinas",
-        name: "Oficinass",
-        rtlName: "لوحة القيادة",
+        name: "Oficinas",
         icon: <StatsIcon color="inherit" />,
         component: Oficinas,
         layout: "/admin",

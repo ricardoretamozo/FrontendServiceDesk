@@ -29,12 +29,35 @@ import {
   import CardBody from "components/Card/CardBody.js";
   import CardHeader from "components/Card/CardHeader.js";
   import TablesSedeRow from "components/Tables/Admin/TablesSedeRow";
-  import React from "react";
+  import React, { useState } from "react";
+  import axios from 'axios';
   
 
+  
   // Componente Modal, formulario de creacion sede.
-  const AddSede = () => {
+  const AgregarSede = () => {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const [ sedeNombre, setNombre] = useState('');
+    const [ sedeDireccion, setDireccion] = useState('');
+
+    const postSedes = ()=> {
+      const data = {
+        sede: sedeNombre,
+        direccion: sedeDireccion
+      }
+      let config = {
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }
+      console.log(data);
+      axios.post('http://localhost:8080/api/sedes', data, config).then(res => {
+        console.log(res);
+        console.log(res.data);
+      }).catch(e =>{
+        console.log(e);
+      });
+    }
     return (
       <Box p="4">
         <Button colorScheme="blue" variant={"solid"} onClick={onOpen}>Agregar</Button>
@@ -46,16 +69,16 @@ import {
             <ModalBody pb={6}>
             <FormControl>
               <FormLabel>Nombre sede</FormLabel>
-              <Input placeholder='Nombre de la sede' />
+              <Input placeholder='Nombre de la sede' onChange={(e)=>{setNombre(e.target.value)}}/>
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>Dirección</FormLabel>
-              <Input placeholder='Direccion de la sede' />
+              <Input placeholder='Direccion de la sede' onChange={(e)=>{setDireccion(e.target.value)}}/>
             </FormControl>
             </ModalBody>
             <ModalFooter>
-              <Button colorScheme="blue" mr={3}>
+              <Button colorScheme="blue" mr={3} onClick={postSedes}>
                 Agregar
               </Button>
               <Button onClick={onClose}>Cancel</Button>
@@ -68,6 +91,8 @@ import {
 
   const Sedes = ({ title, captions, data }) => {
     const textColor = useColorModeValue("gray.700", "white");
+    //const [datos, setDatos] = useState(data);
+    
     return (
       <Card overflowX={{ sm: "scroll", xl: "hidden" }}>
         <CardHeader p='6px 0px 22px 0px'>
@@ -77,7 +102,7 @@ import {
                     {title}
                     </Text>
                 </Box>
-                <AddSede/>
+                <AgregarSede/>
             </Flex>
         </CardHeader>
         <CardBody>
@@ -97,8 +122,8 @@ import {
               {data.map((row) => {
                 return (
                   <TablesSedeRow
-                    key={row.id}
-                    id={row.id}
+                    key={row.idSede}
+                    id={row.idSede}
                     sede={row.sede}
                     direccion={row.direccion}
                   />
