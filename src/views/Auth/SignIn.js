@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 // Chakra imports
 import {
   Box,
@@ -15,95 +15,140 @@ import {
 } from "@chakra-ui/react";
 // Assets
 import signInImage from "assets/img/poderjudicial.jpg";
+import axios from "axios";
 
 function SignIn() {
   // Chakra color mode
   const titleColor = useColorModeValue("#9a1413", "white");
   const textColor = useColorModeValue("black.400", "white");
+  const [dni, dniSet] = useState("");
+  const [password, passwordSet] = useState("");
+
+  function manejadorSubmit(e) {
+    e.preventDesafult();
+  }
+
+  const login = () =>{
+    console.log(dni);
+    const data = {
+      'dni': dni,
+      'password': password 
+    }
+    let config = {
+      headers: { 
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      data : data
+    }
+    axios.post('http://localhost:8080/api/login',config).then(res => {
+      console.log(res);
+      console.log(res,data);
+    }).catch(e => {
+      console.log(e);
+    })
+  }
+
+ 
+
+
+
   return (
-    <Flex position='relative' mb='40px'>
+    <Flex position="relative" mb="40px">
       <Flex
         h={{ sm: "initial", md: "75vh", lg: "85vh" }}
-        w='100%'
-        maxW='1044px'
-        mx='auto'
-        justifyContent='space-between'
-        mb='30px'
-        pt={{ sm: "100px", md: "0px" }}>
+        w="100%"
+        maxW="1044px"
+        mx="auto"
+        justifyContent="space-between"
+        mb="30px"
+        pt={{ sm: "100px", md: "0px" }}
+      >
         <Flex
-          alignItems='center'
-          justifyContent='start'
+          alignItems="center"
+          justifyContent="start"
           style={{ userSelect: "none" }}
-          w={{ base: "100%", md: "50%", lg: "42%" }}>
+          w={{ base: "100%", md: "50%", lg: "42%" }}
+        >
           <Flex
-            direction='column'
-            w='100%'
-            background='transparent'
-            p='48px'
-            mt={{ md: "150px", lg: "80px" }}>
-            <Heading color={titleColor} fontSize='65px' mb='15px'>
+            direction="column"
+            w="100%"
+            background="transparent"
+            p="48px"
+            mt={{ md: "150px", lg: "80px" }}
+          >
+            <Heading color={titleColor} fontSize="65px" mb="15px">
               Bienvenido
             </Heading>
             <Text
-              mb='36px'
-              ms='4px'
+              mb="36px"
+              ms="4px"
               color={textColor}
-              fontWeight='bold'
-              fontSize='14px'>
-              Ingresa tu correo y tu contraseña.
+              fontWeight="bold"
+              fontSize="14px"
+            >
+              Ingresa tu DNI y tu contraseña.
             </Text>
-            <FormControl>
-              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
-                Usuario
+            <FormControl onSubmit={manejadorSubmit}>
+              <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
+                DNI
               </FormLabel>
               <Input
-                borderRadius='15px'
-                mb='24px'
-                fontSize='sm'
-                type='text'
-                placeholder='DNI'
-                size='lg'
-                focusBorderColor='#9a1413'
+                borderRadius="15px"
+                mb="24px"
+                fontSize="sm"
+                type="text"
+                placeholder="DNI"
+                size="lg"
+                focusBorderColor="#9a1413"
+                id="field-1"
+                name="dni"
+                onChange={(e)=>{dniSet(e.target.value); console.log(dni)}}
               />
-              <FormLabel ms='4px' fontSize='sm' fontWeight='normal'>
+              <FormLabel ms="4px" fontSize="sm" fontWeight="normal">
                 Contraseña
               </FormLabel>
               <Input
-                borderRadius='15px'
-                mb='36px'
-                fontSize='sm'
-                type='password'
-                placeholder='Contraseña'
-                size='lg'
-                focusBorderColor='#9a1413'
+                borderRadius="15px"
+                mb="36px"
+                fontSize="sm"
+                type="password"
+                placeholder="Contraseña"
+                size="lg"
+                focusBorderColor="#9a1413"
+                id="field-2"
+                name="password"
+                onChange={(e)=>{passwordSet(e.target.value)}}
               />
               <Button
-                fontSize='15px'
-                type='submit'
-                bg='#9a1413'
-                w='100%'
-                h='45'
-                mb='20px'
-                color='white'
-                mt='20px'
+                fontSize="15px"
+                type="submit"
+                bg="#9a1413"
+                w="100%"
+                h="45"
+                mb="20px"
+                color="white"
+                mt="20px"
                 _hover={{
                   bg: "black",
                 }}
                 _active={{
                   bg: "teal.400",
-                }}>
+                }}
+                onClick={login}
+              >
                 Iniciar Sesión
               </Button>
             </FormControl>
             <Flex
-              flexDirection='column'
-              justifyContent='center'
-              alignItems='center'
-              maxW='100%'
-              mt='0px'>
-              <Text color={textColor} fontWeight='medium'>
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+              maxW="100%"
+              mt="0px"
+            >
+              <Text color={textColor} fontWeight="medium">
                 Usted no esta registrado?
-                <Link color={titleColor} as='span' ms='5px' fontWeight='bold'>
+                <Link color={titleColor} as="span" ms="5px" fontWeight="bold">
                   Registrate
                 </Link>
               </Text>
@@ -112,19 +157,21 @@ function SignIn() {
         </Flex>
         <Box
           display={{ base: "none", md: "block" }}
-          overflowX='hidden'
-          h='100%'
-          w='40vw'
-          position='absolute'
-          right='0px'>
+          overflowX="hidden"
+          h="100%"
+          w="40vw"
+          position="absolute"
+          right="0px"
+        >
           <Box
             bgImage={signInImage}
-            w='100%'
-            h='100%'
-            bgSize='cover'
-            bgPosition='50%'
-            position='absolute'
-            borderBottomLeftRadius='20px'></Box>
+            w="100%"
+            h="100%"
+            bgSize="cover"
+            bgPosition="50%"
+            position="absolute"
+            borderBottomLeftRadius="20px"
+          ></Box>
         </Box>
       </Flex>
     </Flex>
