@@ -16,6 +16,7 @@ import {
 // Assets
 import signInImage from "assets/img/poderjudicial.jpg";
 import axios from "axios";
+import qs from "qs";
 
 function SignIn() {
   // Chakra color mode
@@ -30,19 +31,35 @@ function SignIn() {
 
   const login = () =>{
     console.log(dni);
-    const data = {
+    /*const data = {
       'dni': dni,
       'password': password 
     }
     let config = {
       headers: { 
         'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      data : data
+      }
     }
-    axios.post('http://localhost:8080/api/login',config).then(res => {
+    console.log(config);
+    axios.post('http://localhost:8080/api/login',data,config).then(res => {
       console.log(res);
-      console.log(res,data);
+      console.log(res.data);
+    }).catch(e => {
+      console.log(e);
+    })*/
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/api/login',
+      data: qs.stringify({
+        'dni': dni,
+        'password': password
+      }),
+      headers: {
+        'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      }
+    }).then(res => {
+      console.log(res);
+      console.log(res.data);
     }).catch(e => {
       console.log(e);
     })
