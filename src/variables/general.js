@@ -29,6 +29,10 @@ import {
 } from "react-icons/fa";
 import { SiDropbox } from "react-icons/si";
 
+
+//HACER EL LLAMADO DE DATOS MEDIANTE AXIOS
+
+
 export const dashboardTableData = [
   {
     logo: AdobexdLogo,
@@ -251,44 +255,27 @@ export const tablesTableData = [
   },
 ];
 
-export const tablesSedeData = [
+export const tablesTableDataP = [
   {
-    id: 1,
-    sede: "Central",
-    direccion: "sur"
+    logo: avatar1,
+    nombre: "Esthera Jackson",
+    apellido: "Aguilar Puma",
+    dni: "71489966",
+    fecha: "25/11/2001",
+    sexo: "m",
+    activo: "a"
   },
   {
-    id: 2,
-    sede: "Central#2",
-    direccion: "norte"
-  },
+    logo: avatar2,
+    nombre: "Gabriel Faraon",
+    apellido: "Hamb Yanr",
+    dni: "71489969",
+    fecha: "25/11/2002",
+    sexo: "f",
+    activo: "i"
+  }
 ];
-export const tablesOrganoData = [
-  {
-    idOrgano: 4,
-    sede: {
-        idSede: 1,
-        sede: "Mollendo",
-        direccion: "Av colon"
-    },
-    organo: "Codigo Penal#2"
-  },
-];
-export const tablesOficinaData = [
-  {
-    idOficina: 1,
-    organo: {
-        idOrgano: 6,
-        sede: {
-            idSede: 1,
-            sede: "Mollendo",
-            direccion: "Av colon"
-        },
-        organo: "Codigo Penal"
-    },
-    oficina: "Desapcho #2"
-  },
-];
+
 export const tablesProjectData = [
   {
     logo: AdobexdLogo,

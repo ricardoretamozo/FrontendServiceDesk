@@ -59,7 +59,7 @@ export default function Dashboard() {
           icon={<CartIcon h={"24px"} w={"24px"} color={iconBoxInside} />}
         />
       </SimpleGrid>
-      <Grid
+      {/* <Grid
         templateColumns={{ md: "1fr", lg: "1.8fr 1.2fr" }}
         templateRows={{ md: "1fr auto", lg: "1fr" }}
         my='26px'
@@ -117,7 +117,7 @@ export default function Dashboard() {
           amount={30}
           data={timelineData}
         />
-      </Grid>
+      </Grid> */}
     </Flex>
   );
 }

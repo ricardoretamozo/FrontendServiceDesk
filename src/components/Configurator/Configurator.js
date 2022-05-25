@@ -75,7 +75,7 @@ export default function Configurator(props) {
                     w="50%"
                     p="8px 32px"
                     me="8px"
-                    colorScheme="teal"
+                    colorScheme='teal'
                     borderColor="teal.300"
                     color="teal.300"
                     variant="outline"
@@ -108,7 +108,7 @@ export default function Configurator(props) {
                   Navbar Fixed
                 </Text>
                 <Switch
-                  colorScheme="teal"
+                  colorScheme='teal'
                   isChecked={switched}
                   onChange={(event) => {
                     if (switched === true) {
@@ -204,7 +204,7 @@ export default function Configurator(props) {
                       href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fpurity-ui-dashboard&text=Check%20Purity%20UI%20Dashboard%20made%20by%20%40CreativeTim%20and%20%40simmmple_web%20%23webdesign%20%23dashboard%20%23chakra"
                     >
                       <Button
-                        colorScheme="twitter"
+                        colorScheme='twitter'
                         leftIcon={<FaTwitter />}
                         me="10px"
                       >
